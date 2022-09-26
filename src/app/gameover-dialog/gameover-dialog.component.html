@@ -1,0 +1,16 @@
+<div class="sub-title">
+  Your score was {{ data.score }}
+</div>
+
+<div class="highscores">
+  <div class="title">Previous Highscores</div>
+  <div *ngFor="let highscore of highscores; let i=index" class="highscore">
+    <span class="position">{{i+1}}:</span>
+    <span class="score">{{ highscore.score }}</span>
+  </div>
+</div>
+
+<div class="buttons">
+  <button mat-raised-button cdkFocusInitial (click)="close()">Close</button>
+  <button mat-raised-button color="primary" (click)="save()">Save score</button>
+</div>

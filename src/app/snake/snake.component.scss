@@ -1,0 +1,54 @@
+.title {
+  text-align: center;
+  font-size: 48px;
+  text-decoration: underline;
+  padding: 2rem;
+}
+
+.score {
+  text-align: center;
+  font-size: 24px;
+  padding: 1rem;
+}
+
+.buttons {
+  margin-top: 1rem;
+  display: flex;
+  justify-content: center;
+}
+
+.board {
+  margin: auto;
+  width: fit-content;
+  height: fit-content;
+  border: 2px solid black;
+
+  .row {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .square {
+    flex-grow: 1;
+    padding: 1rem;
+    border: 0.5px solid black;
+  }
+}
+
+.start {
+  text-align: center;
+  font-size: 18px;
+
+  &.hidden {
+    opacity: 0;
+  }
+}
+
+.head, .body {
+  background-color: green;
+}
+
+.food {
+  background-color: pink;
+}
+

@@ -1,0 +1,31 @@
+<ng-container *ngIf="spaceToStart$ | async"></ng-container>
+
+<div class="title">
+  <span>Snake!</span>
+</div>
+
+<div class="start" [class.hidden]="isPlaying">
+  Press space to begin...
+</div>
+
+<div class="score">
+  <span>Score: {{ snakeLength - 1 }}</span>
+</div>
+
+<div class="board">
+  <div *ngFor="let row of board; let i=index" class="row">
+    <ng-container *ngFor="let square of row; let j=index">
+      <div class="square" [ngClass]="{
+        'head': square.type === 'head',
+        'food': square.type === 'food',
+        'body': square.type === 'body',
+        'empty': square.type === 'empty'
+      }">
+      </div>
+    </ng-container>
+  </div>
+</div>
+
+<div class="buttons">
+  <button mat-raised-button color="primary" (click)="startGame()" [disabled]="isPlaying">Play!</button>
+</div>
