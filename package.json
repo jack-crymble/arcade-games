@@ -6,7 +6,8 @@
     "start": "ng serve",
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
-    "test": "ng test"
+    "test": "ng test",
+    "deploy": "ng build --base-href 'https://jack-crymble.github.io/arcade-games/' && npx angular-cli-ghpages --dir=dist/arcade-games"
   },
   "private": true,
   "dependencies": {
