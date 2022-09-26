@@ -13,7 +13,7 @@ export class HighscoreService {
   }
 
   getHighscores(game: Game): Highscore[] {
-    const highscores: Highscore[] = JSON.parse(localStorage.getItem(this.buildID(game))) || []
+    const highscores: Highscore[] = JSON.parse(localStorage.getItem(this.buildID(game)) || '[]');
     return highscores.sort((a, b) => b.score - a.score).slice(0, 5);
   }
 

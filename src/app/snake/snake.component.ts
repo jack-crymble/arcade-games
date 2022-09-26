@@ -14,15 +14,15 @@ import { GameoverDialogComponent } from '../gameover-dialog/gameover-dialog.comp
 })
 export class SnakeComponent implements OnInit, OnDestroy {
   boardSize = 11;
-  board: Square[][];
-  headPosition: Position;
+  board!: Square[][];
+  headPosition!: Position;
   bodyPositions: Position[] = [];
   snakeLength = 1;
-  isPlaying: boolean;
-  isFoodOnBoard: boolean;
-  foodPosition: Position;
+  isPlaying: boolean = false;
+  isFoodOnBoard: boolean = false;
+  foodPosition!: Position;
 
-  spaceToStart$ = fromEvent(document, 'keydown').pipe(
+  spaceToStart$ = fromEvent<KeyboardEvent>(document, 'keydown').pipe(
     filter((event: KeyboardEvent) => event.code === 'Space'),
     filter(() => !this.isPlaying),
     tap(() => this.startGame())
@@ -99,6 +99,9 @@ export class SnakeComponent implements OnInit, OnDestroy {
       this.updateSquare(previousHeadPosition, SquareType.EMPTY);
       this.updateSnakeBody(previousHeadPosition);
       this.updateSquare(this.headPosition, SquareType.HEAD);
+      if(!this.isFoodOnBoard) {
+        this.addFoodToBoard();
+      }
 
       await this.sleep(300);
     }
@@ -139,7 +142,6 @@ export class SnakeComponent implements OnInit, OnDestroy {
     this.bodyPositions.push({x: this.foodPosition.x, y: this.foodPosition.y});
     this.foodPosition.x = -1;
     this.foodPosition.y = -1;
-    this.addFoodToBoard();
   }
 
   private updateSnakeBody(previousHeadPosition: Position): void {

@@ -9,15 +9,15 @@ import { Direction } from '../common.data';
 export class DirectionService {
 
   private VALID_KEY_CODES = ['ArrowUp', 'ArrowRight', 'ArrowDown', 'ArrowLeft'];
-  private _direction: Direction;
-  private _pendingDirection: Direction;
-  private keyDownSubscription: Subscription;
+  private _direction!: Direction;
+  private _pendingDirection!: Direction;
+  private keyDownSubscription?: Subscription;
 
   get currentDirection(): Direction {
     return this._direction;
   }
 
-  keyDown$ = fromEvent(document, 'keydown').pipe(
+  keyDown$ = fromEvent<KeyboardEvent>(document, 'keydown').pipe(
     filter((event: KeyboardEvent) => this.VALID_KEY_CODES.indexOf(event.code) > -1),
     tap(event => {
       if (event.code === 'ArrowUp' && (this._direction === Direction.EAST || this._direction === Direction.WEST)) {
