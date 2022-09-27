@@ -49,4 +49,20 @@ export class DirectionService {
     this.keyDownSubscription?.unsubscribe();
   }
 
+  up(): void {
+    this._pendingDirection = Direction.NORTH;
+  }
+
+  right(): void {
+    this._pendingDirection = Direction.EAST;
+  }
+
+  down(): void {
+    this._pendingDirection = Direction.SOUTH;
+  }
+
+  left(): void {
+      this._pendingDirection = Direction.WEST;
+  }
+
 }

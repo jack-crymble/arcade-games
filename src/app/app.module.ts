@@ -9,20 +9,24 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatButtonModule } from '@angular/material/button';
 import { GameoverDialogComponent } from './gameover-dialog/gameover-dialog.component';
 import { MatDialogModule } from '@angular/material/dialog';
+import { MatIconModule } from '@angular/material/icon';
+import { ArrowKeysComponent } from './common/components/arrow-keys/arrow-keys.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     SnakeComponent,
     HomeComponent,
-    GameoverDialogComponent
+    GameoverDialogComponent,
+    ArrowKeysComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
     MatButtonModule,
-    MatDialogModule
+    MatDialogModule,
+    MatIconModule
   ],
   providers: [],
   bootstrap: [AppComponent]
