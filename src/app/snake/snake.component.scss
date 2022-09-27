@@ -11,12 +11,6 @@
   padding: 1rem;
 }
 
-.buttons {
-  margin-top: 1rem;
-  display: flex;
-  justify-content: center;
-}
-
 .board {
   margin: auto;
   width: fit-content;
@@ -52,3 +46,8 @@
   background-color: pink;
 }
 
+.buttons {
+  margin: 1rem;
+  display: flex;
+  justify-content: center;
+}
