@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Game, Highscore } from '../common.data';
+import { Game, Highscore } from '../../common.data';
 
 @Injectable({
   providedIn: 'root'

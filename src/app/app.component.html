@@ -1,1 +1,9 @@
-<router-outlet></router-outlet>
+<mat-drawer-container>
+    <mat-drawer #drawer mode="over">
+        <app-settings></app-settings>
+    </mat-drawer>
+    <button mat-icon-button (click)="drawer.toggle()">
+        <mat-icon>settings</mat-icon>
+    </button>
+    <router-outlet></router-outlet>
+</mat-drawer-container>

@@ -3,8 +3,9 @@ import { MatDialog } from '@angular/material/dialog';
 import { fromEvent } from 'rxjs';
 import { filter, tap } from 'rxjs/operators';
 import { Direction, Game, Position, Square, SquareType } from '../common/common.data';
-import { DirectionService } from '../common/services/direction.service';
-import { GameService } from '../common/services/game.service';
+import { DirectionService } from '../common/services/direction/direction.service';
+import { GameService } from '../common/services/game/game.service';
+import { SettingsService } from '../common/services/settings/settings.service';
 import { GameoverDialogComponent } from '../gameover-dialog/gameover-dialog.component';
 
 @Component({
@@ -31,10 +32,21 @@ export class SnakeComponent implements OnInit, OnDestroy {
   constructor(
     private gameService: GameService,
     private directionService: DirectionService,
-    private dialog: MatDialog
-  ) {}
+    private dialog: MatDialog,
+    private settingsService: SettingsService
+  ) {
+    const boardSizeChange$ = this.settingsService.boardSizeChange$.subscribe(boardSize => {
+      this.directionService.destroy();
+
+      this.boardSize = boardSize;
+      this.board = this.gameService.generateSquareBoard(this.boardSize);
+      this.directionService.init();
+    })
+
+  }
 
   ngOnInit(): void {
+    this.boardSize = this.settingsService.boardSize;
     this.board = this.gameService.generateSquareBoard(this.boardSize);
     this.directionService.init();
   }

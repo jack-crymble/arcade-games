@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { fromEvent, Subscription } from 'rxjs';
 import { filter, tap } from 'rxjs/operators';
-import { Direction } from '../common.data';
+import { Direction } from '../../common.data';
 
 @Injectable({
   providedIn: 'root'

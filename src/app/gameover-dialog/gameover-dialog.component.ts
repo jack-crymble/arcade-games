@@ -1,7 +1,7 @@
 import { Component, Inject } from "@angular/core";
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { Game, Highscore } from "../common/common.data";
-import { HighscoreService } from "../common/services/highscore.service";
+import { HighscoreService } from "../common/services/highscore/highscore.service";
 
 @Component({
   selector: 'app-gameover-dialog',

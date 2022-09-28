@@ -1,5 +1,5 @@
 import { Component, EventEmitter } from '@angular/core';
-import { DirectionService } from '../../services/direction.service';
+import { DirectionService } from '../../services/direction/direction.service';
 
 @Component({
   selector: 'app-arrow-keys',

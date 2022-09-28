@@ -11,6 +11,10 @@ import { GameoverDialogComponent } from './gameover-dialog/gameover-dialog.compo
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatIconModule } from '@angular/material/icon';
 import { ArrowKeysComponent } from './common/components/arrow-keys/arrow-keys.component';
+import { SettingsComponent } from './common/components/settings/settings.component';
+import { MatSidenavModule } from '@angular/material/sidenav';
+import { MatSliderModule } from '@angular/material/slider';
+
 
 @NgModule({
   declarations: [
@@ -18,7 +22,8 @@ import { ArrowKeysComponent } from './common/components/arrow-keys/arrow-keys.co
     SnakeComponent,
     HomeComponent,
     GameoverDialogComponent,
-    ArrowKeysComponent
+    ArrowKeysComponent,
+    SettingsComponent,
   ],
   imports: [
     BrowserModule,
@@ -26,7 +31,9 @@ import { ArrowKeysComponent } from './common/components/arrow-keys/arrow-keys.co
     BrowserAnimationsModule,
     MatButtonModule,
     MatDialogModule,
-    MatIconModule
+    MatIconModule,
+    MatSidenavModule,
+    MatSliderModule
   ],
   providers: [],
   bootstrap: [AppComponent]

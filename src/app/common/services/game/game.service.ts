@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Square, SquareType } from '../common.data';
+import { Square, SquareType } from '../../common.data';
 
 @Injectable({
   providedIn: 'root'
